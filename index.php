@@ -9,6 +9,9 @@
     <title>Pokemon API</title>
 </head>
 <body>
+    <h3>Introduce el nombre del pokemon que quieres buscar.<br>
+    Si no sabes cuál quieres, pulsa el botón. Se te mostrarán<br>
+    varios para elegir</h3>
     <form method="get">
         <label for="Nombre"></label>
         <input name="nombre">
@@ -23,6 +26,7 @@
             $nombre = $_GET['nombre'];
             header("Location: datosPokemon.php?pokemon=$nombre");
         }else{
+            echo "<h1>Pokemon disponibles</h1>";
             $url = "https://pokeapi.co/api/v2/pokemon?limit=200";
             $json = file_get_contents($url);
             $datosPokemon = json_decode($json,true);
