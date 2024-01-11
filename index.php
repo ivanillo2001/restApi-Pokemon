@@ -27,7 +27,7 @@
             header("Location: datosPokemon.php?pokemon=$nombre");
         }else{
             echo "<h1>Pokemon disponibles</h1>";
-            $url = "https://pokeapi.co/api/v2/pokemon?limit=200";
+            $url = "https://pokeapi.co/api/v2/pokemon?limit=20";
             $json = file_get_contents($url);
             $datosPokemon = json_decode($json,true);
             echo "<div id='zonaPokemon'>";
