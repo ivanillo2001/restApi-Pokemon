@@ -15,11 +15,10 @@
     <form method="get">
         <label for="Nombre"></label>
         <input name="nombre">
-        <button type="submit" name="button">Enviar</button>
+        <button type="submit" name="button">Buscar</button>
     </form>
 </body>
 </html>
-
 <?php
     if (isset($_GET['button'])){
         if ($_GET['nombre']!=""){
