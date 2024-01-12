@@ -26,21 +26,34 @@
                 throw new Exception("Error al decodificar datos del Pokémon");
             }
             echo "<img src='".$datosPokemon['sprites']['front_default']."'>"; //front_default es la imagen a la que hacemos referencia
-            echo "<ul>";
-            echo "<li>Nombre: ".$datosPokemon['name']."</li>";
-            echo "<li>Altura: ".$datosPokemon['height']."</li>";
-            echo "<li>Peso: ".$datosPokemon['weight']."</li>";
-            echo "</ul>";
-            echo "<h2>Habilidades</h2>";
-            echo "<ul>";
+            echo "<table id='tablaDatos'>";
+            echo "<tr>";
+                echo "<td><h2>Nombre:</h2></td>";
+                echo "<td><h3>".$datosPokemon['name']."</h3></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><h2>Altura:</h2></td>";
+            echo "<td><h3>".$datosPokemon['height']."</h3></td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><h2>Peso:</h2></td>";
+            echo "<td><h3>".$datosPokemon['weight']."</h3></td>";
+            echo "</tr>";
+            echo "<table>";
+
+            echo "<h2>Abilities</h2>";
+            echo "<div id='habilidades'>";
             foreach ($datosPokemon['abilities'] as $habilidad){
-                echo "<li>".$habilidad['ability']['name']."</li>";
+                echo "<h3>".$habilidad['ability']['name']."</h3><br>";
             }
-            echo"</ul>";
+            echo"</div>";
+
             echo "<h2>types:</h2>";
+            echo "<div id='types'>";
             foreach ($datosPokemon['types'] as $type){
-                echo $type['type']['name'];//accedemos a su tipo de pokemon
+                echo "<h3>".$type['type']['name']."</h3><br>";//accedemos a su tipo de pokemon
             }
+            echo "</div>";
         }catch (Exception $e) {
             echo "Error: " . $e->getMessage();
         }
